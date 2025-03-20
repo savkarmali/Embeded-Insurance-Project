@@ -72,8 +72,8 @@ CREATE TABLE notification_log (
 );
 
 ----------------------------------------------
+*Insert dummy policies*
 
--- Insert dummy policies
 INSERT INTO policy_360 (policy_number, policy_type, premium_amount, effective_date, expiration_date, customer_reference)
 VALUES 
 ('POL123456', 'Auto', 1000.50, '2023-01-01', '2024-01-01', 'john.doe@example.com'),
@@ -81,8 +81,8 @@ VALUES
 ('POL987654', 'Home', 2000.00, '2023-05-01', '2024-05-01', 'alice.brown@example.com');
 
 ----------------------------------------------
+*Insert dummy customers*
 
--- Insert dummy customers
 INSERT INTO customer_360 (name, email, phone, address, date_of_birth)
 VALUES 
 ('John Doe', 'john.doe@example.com', '+1234567890', '123 Main St, Cityville, USA', '1980-05-15'),
@@ -90,8 +90,8 @@ VALUES
 ('Alice Brown', 'alice.brown@example.com', '+1122334455', '789 Oak St, Villageville, USA', '1985-07-20');
 
 ----------------------------------------------
+*Insert dummy claims*
 
--- Insert dummy claims
 INSERT INTO claim_360 (claim_number, policy_reference, customer_reference, claim_status, claim_amount, date_filed, date_resolved)
 VALUES 
 ('CLM001', 'POL123456', 'john.doe@example.com', 'FILED', 500.00, '2023-02-20', NULL),
@@ -99,8 +99,8 @@ VALUES
 ('CLM003', 'POL987654', 'alice.brown@example.com', 'REJECTED', 750.00, '2023-06-05', '2023-06-12');
 
 ----------------------------------------------
+*Insert dummy payments*
 
--- Insert dummy payments
 INSERT INTO payment (policy_reference, customer_reference, transaction_id, amount, payment_date, status)
 VALUES 
 ('POL123456', 'john.doe@example.com', 'TXN1001', 1000.50, '2023-01-01 10:00:00', 'SUCCESS'),
@@ -108,8 +108,8 @@ VALUES
 ('POL987654', 'alice.brown@example.com', 'TXN1003', 2000.00, '2023-05-01 09:45:00', 'PENDING');
 
 ----------------------------------------------
+*Insert dummy notification logs*
 
--- Insert dummy notification logs
 INSERT INTO notification_log (notification_type, recipient, message, status)
 VALUES 
 ('EMAIL', 'john.doe@example.com', 'Your policy POL123456 has been created and activated successfully.', 'SENT'),
