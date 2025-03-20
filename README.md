@@ -71,7 +71,8 @@ CREATE TABLE notification_log (
     INDEX idx_notification_type (notification_type)
 );
 
-===========================================================
+----------------------------------------------
+
 -- Insert dummy policies
 INSERT INTO policy_360 (policy_number, policy_type, premium_amount, effective_date, expiration_date, customer_reference)
 VALUES 
@@ -80,6 +81,7 @@ VALUES
 ('POL987654', 'Home', 2000.00, '2023-05-01', '2024-05-01', 'alice.brown@example.com');
 
 ----------------------------------------------
+
 -- Insert dummy customers
 INSERT INTO customer_360 (name, email, phone, address, date_of_birth)
 VALUES 
@@ -88,6 +90,7 @@ VALUES
 ('Alice Brown', 'alice.brown@example.com', '+1122334455', '789 Oak St, Villageville, USA', '1985-07-20');
 
 ----------------------------------------------
+
 -- Insert dummy claims
 INSERT INTO claim_360 (claim_number, policy_reference, customer_reference, claim_status, claim_amount, date_filed, date_resolved)
 VALUES 
@@ -96,6 +99,7 @@ VALUES
 ('CLM003', 'POL987654', 'alice.brown@example.com', 'REJECTED', 750.00, '2023-06-05', '2023-06-12');
 
 ----------------------------------------------
+
 -- Insert dummy payments
 INSERT INTO payment (policy_reference, customer_reference, transaction_id, amount, payment_date, status)
 VALUES 
@@ -104,6 +108,7 @@ VALUES
 ('POL987654', 'alice.brown@example.com', 'TXN1003', 2000.00, '2023-05-01 09:45:00', 'PENDING');
 
 ----------------------------------------------
+
 -- Insert dummy notification logs
 INSERT INTO notification_log (notification_type, recipient, message, status)
 VALUES 
@@ -112,4 +117,4 @@ VALUES
 ('SMS', '+1234567890', 'Payment of $1000.50 has been processed for policy POL123456.', 'SENT'),
 ('SMS', '+1987654321', 'Your claim CLM002 status updated: APPROVED. Check your email for details.', 'SENT');
 
-===========================================================
+----------------------------------------------
