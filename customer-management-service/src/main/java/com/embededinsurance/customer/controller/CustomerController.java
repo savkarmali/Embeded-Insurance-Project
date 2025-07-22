@@ -43,4 +43,10 @@ public class CustomerController {
     public Customer getCustomeByReference(@PathVariable String customerReference){
         return customerService.getCustomerByReference(customerReference);
     }
+
+    @GetMapping("/validate")
+    public String validateCustomers(){
+        // Trigger validation logic if necessary
+        return "Customers validation triggered";
+    }
 }

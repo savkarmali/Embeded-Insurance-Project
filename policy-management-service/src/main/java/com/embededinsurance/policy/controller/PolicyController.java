@@ -1,6 +1,7 @@
 package com.embededinsurance.policy.controller;
 
 import com.embededinsurance.policy.dto.Policy;
+import com.embededinsurance.policy.service.PolicyProducer;
 import com.embededinsurance.policy.service.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,9 @@ public class PolicyController {
 
     @Autowired
     private PolicyService policyService;
+
+    @Autowired
+    private PolicyProducer policyProducer;
 
     // Create a new policy
     @PostMapping
@@ -45,6 +49,13 @@ public class PolicyController {
     @GetMapping("/reference/{policyReference}")
     public Policy getPolicyByReference(@PathVariable String policyReference){
         return policyService.getPolicyByReference(policyReference);
+    }
+
+    @PostMapping("/process")
+    public String processPolicy(@RequestBody String policyInfo) {
+        // Business logic for processing policy
+        policyProducer.sendPolicyUpdate("Policy processed : " + policyInfo);
+        return "Policy processed successfully ! ";
     }
 
 
